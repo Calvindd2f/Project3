@@ -1,3 +1,5 @@
+#pragma once
+
 #pragma managed
 
 #include <msclr/marshal_cppstd.h>
@@ -15,6 +17,8 @@ using namespace System::Diagnostics;
 using namespace System::Reflection;
 using namespace System::Management::Automation::Host;
 using namespace System::Runtime::InteropServices;
+using namespace System::Globalization;
+using namespace PSHOST;
 
 typedef void (*LogCallbackFunction)(const char*, int);
 

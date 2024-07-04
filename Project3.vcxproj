@@ -123,6 +123,9 @@
     </Library>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="PSHOST">
+      <HintPath>PSHOST.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Management.Automation">
       <HintPath>..\..\..\packages\Microsoft.PowerShell.5.1.ReferenceAssemblies.1.0.0\lib\net461\System.Management.Automation.dll</HintPath>
