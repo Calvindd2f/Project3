@@ -16,6 +16,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8.1\mscorlib.dll" />
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="..\ClassLibrary1\packages\System.Management.Automation.7.4.3\ref\net8.0\System.Management.Automation.dll" />

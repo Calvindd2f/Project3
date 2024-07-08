@@ -121,6 +121,7 @@
       <FileType>Document</FileType>
       <DeploymentContent>false</DeploymentContent>
     </Library>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="PSHOST">

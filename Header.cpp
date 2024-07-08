@@ -55,7 +55,9 @@ void PowerShellExecutor::Error_DataAdded(Object^ sender, DataAddedEventArgs^ e)
             {
                 try
                 {
-                    String^ responseText = gcnew System::IO::StreamReader(webEx->Response->GetResponseStream())->ReadToEnd();
+                    System::IO::StreamReader^ reader = gcnew System::IO::StreamReader(webEx->Response->GetResponseStream());
+                    String^ responseText = reader->ReadToEnd();
+                    reader->Close();
                     SendLog("Web Exception Details: " + responseText, LogOutputType::Error);
                 }
                 catch (Exception^ ex)
@@ -138,12 +140,12 @@ void PowerShellExecutor::BindEvents(PowerShell^ ps, PSHost^ host)
         auto defaultHost = dynamic_cast<DefaultHost^>(host);
         if (defaultHost != nullptr)
         {
-            defaultHost->OnInformation += gcnew Action<String^>(this, &PowerShellExecutor::Host_OnInformation);
+            //defaultHost->OnInformation += gcnew Action<String^>(this, &PowerShellExecutor::Host_OnInformation);
         }
     }
 }
 
-PowerShellExecutionResult^ ExecutePowerShell(String^ script, bool isInlinePowershell)
+static PowerShellExecutionResult^ ExecutePowerShell(String^ script, bool isInlinePowershell)
 {
     auto result = gcnew PowerShellExecutionResult();
     try
@@ -173,7 +175,7 @@ PowerShellExecutionResult^ ExecutePowerShell(String^ script, bool isInlinePowers
 		}
 
         auto psInvocationSettings = gcnew PSInvocationSettings();
-        psInvocationSettings->Host = runspace->SessionStateProxy->Host;
+        //psInvocationSettings->Host = runspace->SessionStateProxy->Host;
 
         auto outputCollection = gcnew PSDataCollection<PSObject^>();
         ps->Invoke(nullptr, outputCollection, psInvocationSettings);

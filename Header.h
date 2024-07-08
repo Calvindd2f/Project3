@@ -2,10 +2,12 @@
 
 #pragma managed
 
-#include <msclr/marshal_cppstd.h>
-#include <vcclr.h>
-#include <string>
 #include "../../../../../Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.8.1/System.dll"
+#include <fstream>
+#include <iostream>
+#include <msclr/marshal_cppstd.h>
+#include <string>
+#include <vcclr.h>
 
 using namespace System;
 using namespace std;
@@ -51,7 +53,7 @@ ref class PowerShellExecutor
 {
 public:
     PowerShellExecutor(IntPtr callbacks);
-    PowerShellExecutionResult^ ExecutePowerShell(String^ script, bool isInlinePowershell);
+    static PowerShellExecutionResult^ ExecutePowerShell(String^ script, bool isInlinePowershell);
 
 private:
     IntPtr callbacksPtr;
